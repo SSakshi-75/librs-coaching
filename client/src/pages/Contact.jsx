@@ -54,7 +54,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch(`${BACKEND_URL}/api/contact/submit`, {
+      const response = await fetch(`https://librs-coaching.onrender.com/api/contact/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
