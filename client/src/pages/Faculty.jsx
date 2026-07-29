@@ -493,14 +493,6 @@ const Faculty = () => {
       title: 'Railway Exam',
       isGrid: true,
       listItems: railwayExams.reduce((acc, curr) => acc.concat(curr.listItems), [])
-    },
-    {
-      id: 'g6',
-      title: 'Civil Services & State Exams',
-      isGrid: true,
-      listItems: [
-        'UPSC Civil Services', 'UPPSC', 'BPSC', 'MPPSC', 'RPSC'
-      ]
     }
   ];
 

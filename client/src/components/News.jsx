@@ -5,23 +5,23 @@ import { motion } from 'framer-motion';
 const newsData = [
   {
     type: 'Exam Notification',
-    title: 'SSC CGL 2026 Notification Released',
+    title: 'SSC CGL Notification Released',
     date: 'July 15, 2026',
-    description: 'The Staff Selection Commission has released the official notification for CGL 2026. Check eligibility and important dates.',
+    description: 'The Staff Selection Commission has released the official notification for CGL. Check eligibility and important dates.',
     color: 'bg-blue-100 text-blue-700'
   },
   {
     type: 'New Batch',
-    title: 'UPSC Foundation Batch Starting',
-    date: 'August 1, 2026',
-    description: 'Admissions open for the new UPSC Civil Services Foundation batch. Limited seats available. Register today.',
+    title: 'UP-TET Target Batch Starting',
+    date: 'August 10, 2026',
+    description: 'Admissions open for the new UP-TET Target batch. Complete syllabus coverage. Limited seats available.',
     color: 'bg-green-100 text-green-700'
   },
   {
-    type: 'Coaching Update',
-    title: 'Free Mega Scholarship Test',
-    date: 'August 10, 2026',
-    description: 'Participate in our all-India mock test and stand a chance to win up to 100% scholarship on our premium courses.',
+    type: 'Study Material',
+    title: 'CTET Study Notes Available',
+    date: 'August 5, 2026',
+    description: 'Comprehensive study materials and previous year question papers for CTET are now available for download.',
     color: 'bg-brand-orange/20 text-brand-orange'
   }
 ];
@@ -53,9 +53,6 @@ const News = () => {
               <div className="flex justify-between items-center mb-4">
                 <span className={`text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide ${news.color}`}>
                   {news.type}
-                </span>
-                <span className="flex items-center text-sm text-gray-500 font-medium">
-                  <FiCalendar className="mr-1" /> {news.date}
                 </span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{news.title}</h3>

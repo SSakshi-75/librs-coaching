@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,6 @@ const Contact = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     let { id, value } = e.target;
@@ -39,16 +39,15 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus({ type: '', message: '' });
 
     // Custom Validations before API call
     if (formData.phone.length !== 10) {
-      setStatus({ type: 'error', message: 'Phone number must be exactly 10 digits.' });
+      toast.warning('Phone number must be exactly 10 digits.');
       setLoading(false);
       return;
     }
     if (!formData.email.endsWith('.com')) {
-      setStatus({ type: 'error', message: 'Email must end with .com' });
+      toast.warning('Email must end with .com');
       setLoading(false);
       return;
     }
@@ -65,14 +64,14 @@ const Contact = () => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        setStatus({ type: 'success', message: data.message });
-        setFormData({ name: '', phone: '', email: '', password: '', course: '', message: '' });
+        toast.success(data.message || 'Message sent successfully!');
+        setFormData({ name: '', phone: '', email: '', course: '', message: '' });
       } else {
-        setStatus({ type: 'error', message: data.message || 'Something went wrong.' });
+        toast.error(data.message || 'Something went wrong.');
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setStatus({ type: 'error', message: 'Failed to submit form. Please try again later.' });
+      toast.error('Failed to submit form. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -130,7 +129,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-gray-900">Email</h4>
                   <p className="text-gray-600">admissions@librsclasses.com</p>
-                  <p className="text-gray-600">info@librsclasses.com</p>
+                  <p className="text-gray-600">librsclasses@gmail.com</p>
                 </div>
               </div>
 
@@ -186,11 +185,6 @@ const Contact = () => {
             <p className="text-gray-500 mb-8">Fill out the form below and our counselor will contact you shortly.</p>
 
             <form className="space-y-6" onSubmit={handleSubmit} autoComplete="off">
-              {status.message && (
-                <div className={`p-4 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
-                  {status.message}
-                </div>
-              )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

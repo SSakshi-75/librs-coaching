@@ -32,6 +32,49 @@ export const loginAdmin = async (req, res) => {
   }
 };
 
+export const registerAdmin = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !email.toLowerCase().endsWith('@gmail.com')) {
+    return res.status(400).json({ message: "Only @gmail.com emails are allowed" });
+  }
+
+  if (!password || password.length < 6) {
+    return res.status(400).json({ message: "Password must be at least 6 characters long" });
+  }
+
+  try {
+    const adminExists = await Admin.findOne({ email: email.toLowerCase() });
+
+    if (adminExists) {
+      return res.status(400).json({ message: "Admin already exists" });
+    }
+
+    const admin = await Admin.create({
+      email: email.toLowerCase(),
+      password,
+    });
+
+    if (admin) {
+      const token = generateToken(admin._id);
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+      });
+      res.status(201).json({
+        _id: admin._id,
+        email: admin.email,
+      });
+    } else {
+      res.status(400).json({ message: "Invalid admin data" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 export const getInquiries = async (req, res) => {
   try {
     const inquiries = await Contact.find({}).sort({ createdAt: -1 });
@@ -47,4 +90,17 @@ export const logoutAdmin = (req, res) => {
     expires: new Date(0)
   });
   res.json({ message: "Logged out successfully" });
+};
+
+export const deleteInquiry = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const inquiry = await Contact.findByIdAndDelete(id);
+    if (!inquiry) {
+      return res.status(404).json({ message: "Inquiry not found" });
+    }
+    res.json({ message: "Inquiry deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
 };
