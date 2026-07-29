@@ -121,3 +121,4 @@ Thumbs.db
 
 # specific Librus files
 client/lighthouse-report.json
+.env
