@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../config';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact/submit', {
+      const response = await fetch(`${BACKEND_URL}/api/contact/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -209,7 +210,6 @@ const Contact = () => {
                   <option value="ssc">SSC Preparation</option>
                   <option value="banking">Banking Exams</option>
                   <option value="railway">Railway RRB</option>
-                  <option value="upsc">UPSC Civil Services</option>
                   <option value="nda">NDA / Defence</option>
                 </select>
               </div>

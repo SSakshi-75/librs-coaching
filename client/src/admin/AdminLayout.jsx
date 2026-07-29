@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, Navigate, Link } from 'react-router-dom';
+import { BACKEND_URL } from '../config';
 
 const AdminLayout = () => {
   const isLoggedIn = localStorage.getItem('isAdminLoggedIn');
@@ -10,7 +11,7 @@ const AdminLayout = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:5000/api/admin/logout', { method: 'POST', credentials: 'include' });
+      await fetch(`${BACKEND_URL}/api/admin/logout`, { method: 'POST', credentials: 'include' });
     } catch (err) {
       console.error(err);
     }

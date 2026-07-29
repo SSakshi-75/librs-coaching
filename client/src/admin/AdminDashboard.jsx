@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FiEye, FiTrash2, FiSearch, FiX } from 'react-icons/fi';
 
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../config';
 
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState([]);
@@ -23,7 +24,7 @@ const AdminDashboard = () => {
 
   const fetchInquiries = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/admin/inquiries', {
+      const res = await fetch(`${BACKEND_URL}/api/admin/inquiries`, {
         credentials: 'include'
       });
       if (res.ok) {
@@ -39,7 +40,7 @@ const AdminDashboard = () => {
   const handleDelete = async () => {
     if (!inquiryToDelete) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/inquiries/${inquiryToDelete}`, {
+      const res = await fetch(`${BACKEND_URL}/api/admin/inquiries/${inquiryToDelete}`, {
         method: 'DELETE',
         credentials: 'include'
       });

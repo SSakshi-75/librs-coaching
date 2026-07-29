@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../config';
 
 const AdminRegister = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ const AdminRegister = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/register', {
+      const response = await fetch(`${BACKEND_URL}/api/admin/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
