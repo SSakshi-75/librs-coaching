@@ -18,7 +18,8 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL, 
     "http://localhost:5173", 
-    "https://librs-coaching.vercel.app"
+    "https://librs-coaching.vercel.app",
+    "https://librus-seven.vercel.app"
   ].filter(Boolean), 
   credentials: true 
 }));
