@@ -2,35 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useInView, motion } from 'framer-motion';
 import { FiUsers, FiAward, FiBookOpen, FiClock } from 'react-icons/fi';
 
+import ReactCountUp from 'react-countup';
+
 const CountUp = ({ end, isInView }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const duration = 2000;
-      const frameRate = 16;
-      const totalFrames = Math.round(duration / frameRate);
-      let currentFrame = 0;
-
-      const timer = setInterval(() => {
-        currentFrame++;
-        const progress = currentFrame / totalFrames;
-        const easedProgress = 1 - Math.pow(1 - progress, 4);
-        
-        if (currentFrame >= totalFrames) {
-          clearInterval(timer);
-          setCount(end);
-        } else {
-          setCount(Math.floor(easedProgress * end));
-        }
-      }, frameRate);
-      
-      return () => clearInterval(timer);
-    }
-  }, [end, isInView]);
-
-  return <>{count}</>;
+  return isInView ? <ReactCountUp end={end} duration={2} useEasing={true} /> : <span>0</span>;
 };
 
 const StatsCard = ({ end, label, suffix = '+', icon: Icon, delay }) => {
