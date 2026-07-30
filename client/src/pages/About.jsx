@@ -120,7 +120,7 @@ const About = () => {
           </div>
 
           {/* Cards Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
             <Link to="/results" className="block bg-blue-50 p-6 rounded-2xl border-l-4 border-brand-blue shadow-sm hover:shadow-md transition-shadow cursor-pointer hover:-translate-y-1 transform duration-300">
               <FiAward className="text-brand-blue w-8 h-8 mb-3" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Proven Results</h3>
