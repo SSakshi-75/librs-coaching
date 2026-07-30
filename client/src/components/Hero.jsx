@@ -15,10 +15,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div
-            className="text-white space-y-6 opacity-0 animate-fade-in-up"
-            style={{ animationDelay: "100ms" }}
-          >
+          <div className="text-white space-y-6">
             <div className="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5">
               <span className="text-brand-orange font-semibold text-sm uppercase tracking-wider">
                 ★ Trusted by 5000+ Students
@@ -55,10 +52,7 @@ const Hero = () => {
           </div>
 
           {/* Right Image & Floating Cards */}
-          <div
-            className="relative mt-12 lg:mt-0 opacity-0 animate-zoom-in"
-            style={{ animationDelay: "300ms" }}
-          >
+          <div className="relative mt-12 lg:mt-0">
             {/* Main Illustration placeholder - Using a styled div or generated image */}
             <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-white">
               <img
