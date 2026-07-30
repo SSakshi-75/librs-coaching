@@ -7,9 +7,9 @@ const Hero = () => {
     <section className="relative min-h-[115vh] flex items-center pt-24 pb-32 overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#1e40af]">
       {/* Background Shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full filter blur-3xl opacity-20 animate-[float_3s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-cyan-400 rounded-full filter blur-3xl opacity-20 animate-[float-delayed_4s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-[float_3s_ease-in-out_infinite]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -65,10 +65,8 @@ const Hero = () => {
             </div>
 
             {/* Floating Card 1 */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute left-2 top-2 lg:-left-12 lg:top-20 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-top-left z-20"
+            <div
+              className="absolute left-2 top-2 lg:-left-12 lg:top-20 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-top-left z-20 animate-[float_3s_ease-in-out_infinite]"
             >
               <div className="bg-green-100 p-2 sm:p-3 rounded-full text-green-600">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
@@ -77,13 +75,11 @@ const Hero = () => {
                 <p className="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Success Rate</p>
                 <p className="text-lg sm:text-xl font-bold text-gray-800">95%</p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Floating Card 2 */}
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute right-2 bottom-16 lg:-right-8 lg:bottom-24 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-bottom-right z-20"
+            <div
+              className="absolute right-2 bottom-16 lg:-right-8 lg:bottom-24 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-bottom-right z-20 animate-[float-delayed_4s_ease-in-out_infinite]"
             >
               <div className="bg-brand-blue/10 p-2 sm:p-3 rounded-full text-brand-blue">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
@@ -92,7 +88,7 @@ const Hero = () => {
                 <p className="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Expert Faculty</p>
                 <p className="text-lg sm:text-xl font-bold text-gray-800">10+</p>
               </div>
-            </motion.div>
+            </div>
 
           </motion.div>
         </div>
