@@ -94,15 +94,14 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative lg:pl-10 mt-2 lg:-mt-48 flex flex-col items-center"
+              className="relative lg:pl-10 mt-12 lg:-mt-48 flex flex-col items-center px-4 sm:px-0"
             >
-              <div className="relative w-full max-w-[380px]">
+              <div className="relative w-full max-w-[280px] sm:max-w-[380px]">
                 {/* Decorative Elements */}
-                <div className="absolute -bottom-4 -left-4 w-full h-full border-4 border-brand-orange/30 rounded-[2.5rem] z-0 rounded-bl-[4rem]"></div>
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-blue rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0"></div>
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-blue rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0 hidden sm:block"></div>
 
                 {/* Image Card */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 border-8 border-white aspect-[4/5] bg-gray-100 group">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 border-4 sm:border-8 border-white aspect-[4/5] bg-gray-100 group">
                   <img
                     src="/logos/director.jpg"
                     alt="Director"
@@ -113,21 +112,21 @@ const About = () => {
                 </div>
 
                 {/* Experience Badge */}
-                <div className="absolute top-8 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center space-x-3 z-20 border border-gray-100 transform hover:-translate-y-1 transition-transform duration-300">
-                  <div className="bg-brand-orange text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-inner">
+                <div className="absolute top-4 sm:top-8 -left-4 sm:-left-6 bg-white p-3 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 z-20 border border-gray-100 transform hover:-translate-y-1 transition-transform duration-300">
+                  <div className="bg-brand-orange text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-lg sm:text-xl shadow-inner">
                     10+
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Years of</p>
-                    <p className="text-gray-900 font-extrabold text-sm">Excellence</p>
+                    <p className="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-widest">Years of</p>
+                    <p className="text-gray-900 font-extrabold text-xs sm:text-sm">Excellence</p>
                   </div>
                 </div>
               </div>
 
               {/* Director Name Outside */}
-              <div className="mt-8 text-center relative z-10">
-                <h3 className="text-2xl font-black text-gray-900 tracking-tight">Mr. Vinay Kumar Singh</h3>
-                <p className="text-brand-orange font-bold uppercase tracking-widest text-sm mt-1">Director</p>
+              <div className="mt-6 sm:mt-8 text-center relative z-10">
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">Mr. Vinay Kumar Singh</h3>
+                <p className="text-brand-orange font-bold uppercase tracking-widest text-xs sm:text-sm mt-1">Director</p>
               </div>
             </motion.div>
 
