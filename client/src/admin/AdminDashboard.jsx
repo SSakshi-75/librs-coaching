@@ -87,8 +87,8 @@ const AdminDashboard = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="space-y-6 relative">
-      <div className="flex justify-between items-end mb-8">
+    <div className="space-y-6 relative overflow-x-hidden">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
         <div>
           <h2 className="text-3xl font-bold text-brand-blue mb-1">Dashboard</h2>
           <p className="text-gray-600">Welcome to the Librs Classes Admin Portal.</p>
@@ -184,8 +184,8 @@ const AdminDashboard = () => {
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex justify-center mt-6">
-            <nav className="flex gap-2">
+          <div className="flex justify-center mt-6 overflow-x-auto pb-2">
+            <nav className="flex flex-wrap justify-center gap-2">
               <button 
                 onClick={() => paginate(currentPage > 1 ? currentPage - 1 : 1)}
                 disabled={currentPage === 1}
@@ -226,8 +226,8 @@ const AdminDashboard = () => {
                 <FiX size={24} />
               </button>
             </div>
-            <div className="p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="p-4 sm:p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Name</p>
                   <p className="font-medium text-gray-900">{selectedInquiry.name}</p>
@@ -246,13 +246,13 @@ const AdminDashboard = () => {
                   <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Email</p>
                   <p className="font-medium text-gray-900">{selectedInquiry.email}</p>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 sm:col-span-2">
                   <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Date & Time</p>
                   <p className="font-medium text-gray-900">
                     {new Date(selectedInquiry.createdAt).toLocaleDateString()} at {new Date(selectedInquiry.createdAt).toLocaleTimeString()}
                   </p>
                 </div>
-                <div className="col-span-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                <div className="col-span-1 sm:col-span-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <p className="text-xs text-gray-500 uppercase font-semibold mb-2">Message</p>
                   <p className="text-gray-700 whitespace-pre-wrap">{selectedInquiry.message}</p>
                 </div>
