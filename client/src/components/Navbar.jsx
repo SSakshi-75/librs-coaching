@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -82,33 +81,24 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-white text-gray-800 overflow-hidden shadow-xl"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-2">
-              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Home</Link>
-              <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">About Us</Link>
-              <Link to="/faculty" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Faculty</Link>
-              <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Gallery</Link>
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Contact</Link>
-              <div className="pt-4 flex flex-col space-y-3 px-3">
-                <Link
-                  to="/admission"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="bg-brand-orange text-white py-2 rounded-full font-medium hover:bg-brand-orange-hover transition shadow-md text-center block w-full"
-                >
-                  Admission Now
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className={`lg:hidden bg-white text-gray-800 overflow-hidden shadow-xl transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="px-4 pt-2 pb-6 space-y-2">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Home</Link>
+          <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">About Us</Link>
+          <Link to="/faculty" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Faculty</Link>
+          <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Gallery</Link>
+          <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md font-medium hover:bg-brand-light hover:text-brand-orange">Contact</Link>
+          <div className="pt-4 flex flex-col space-y-3 px-3">
+            <Link
+              to="/admission"
+              onClick={() => setMobileMenuOpen(false)}
+              className="bg-brand-orange text-white py-2 rounded-full font-medium hover:bg-brand-orange-hover transition shadow-md text-center block w-full"
+            >
+              Admission Now
+            </Link>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingContact from './components/FloatingContact';
 
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
 const Faculty = lazy(() => import('./pages/Faculty'));
 const SuccessStories = lazy(() => import('./pages/SuccessStories'));
