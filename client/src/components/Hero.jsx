@@ -1,15 +1,13 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[115vh] flex items-center pt-24 pb-32 overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#1e40af]">
-      {/* Background Shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange/20 rounded-full"></div>
+        <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-cyan-400/20 rounded-full"></div>
+        <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-500/20 rounded-full"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -67,10 +65,8 @@ const Hero = () => {
             </div>
 
             {/* Floating Card 1 */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute left-2 top-2 lg:-left-12 lg:top-20 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-top-left z-20"
+            <div
+              className="absolute left-2 top-2 lg:-left-12 lg:top-20 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-top-left z-20 animate-float will-change-transform"
             >
               <div className="bg-green-100 p-2 sm:p-3 rounded-full text-green-600">
                 <svg
@@ -93,18 +89,11 @@ const Hero = () => {
                   95%
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Floating Card 2 */}
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-              className="absolute right-2 bottom-16 lg:-right-8 lg:bottom-24 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-bottom-right z-20"
+            <div
+              className="absolute right-2 bottom-16 lg:-right-8 lg:bottom-24 bg-white p-2 sm:p-4 rounded-xl shadow-xl flex items-center space-x-2 sm:space-x-3 border border-gray-100 scale-75 sm:scale-90 lg:scale-100 origin-bottom-right z-20 animate-float-delayed will-change-transform"
             >
               <div className="bg-brand-blue/10 p-2 sm:p-3 rounded-full text-brand-blue">
                 <svg
@@ -129,7 +118,7 @@ const Hero = () => {
                   10+
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
