@@ -16,8 +16,8 @@ export const loginAdmin = async (req, res) => {
       const token = generateToken(admin._id);
       res.cookie("token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
       });
       res.json({
@@ -59,8 +59,8 @@ export const registerAdmin = async (req, res) => {
       const token = generateToken(admin._id);
       res.cookie("token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         maxAge: 30 * 24 * 60 * 60 * 1000,
       });
       res.status(201).json({
@@ -87,8 +87,8 @@ export const getInquiries = async (req, res) => {
 export const logoutAdmin = (req, res) => {
   res.cookie("token", "", {
     httpOnly: true,
-    secure: true,
-    sameSite: "None",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     expires: new Date(0)
   });
   res.json({ message: "Logged out successfully" });
