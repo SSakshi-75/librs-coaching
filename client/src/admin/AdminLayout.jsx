@@ -21,12 +21,12 @@ const AdminLayout = () => {
 
   return (
     <div className="min-h-screen bg-brand-light flex flex-col font-sans">
-      <header className="bg-brand-blue text-white py-4 px-6 md:px-8 flex justify-between items-center shadow-lg sticky top-0 z-50">
+      <header className="bg-brand-blue text-white py-4 px-4 md:px-8 flex flex-col sm:flex-row justify-between items-center shadow-lg sticky top-0 z-50 gap-4 sm:gap-0">
         <div className="flex items-center gap-2">
           <Link to="/admin/dashboard" className="flex items-center gap-1 hover:opacity-90 transition">
              <span className="text-2xl font-bold text-white">Librs</span>
              <span className="text-2xl font-bold text-brand-orange">Classes</span>
-             <span className="ml-2 px-2 py-1 bg-white/20 rounded text-xs font-semibold uppercase tracking-wider">Admin</span>
+             <span className="ml-2 px-2 py-1 bg-white/20 rounded text-xs font-semibold uppercase tracking-wider hidden sm:inline-block">Admin</span>
           </Link>
         </div>
         <div className="flex items-center gap-4">

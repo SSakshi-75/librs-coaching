@@ -92,6 +92,8 @@ const About = () => {
                   <img
                     src="/logos/director.jpg"
                     alt="Director"
+                    width="400"
+                    height="500"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
