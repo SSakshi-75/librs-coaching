@@ -60,7 +60,6 @@ const Hero = () => {
                 height="600"
                 className="w-full h-auto object-contain"
                 fetchPriority="high"
-                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
             </div>
