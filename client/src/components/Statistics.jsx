@@ -2,7 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useInView, motion } from 'framer-motion';
 import { FiUsers, FiAward, FiBookOpen, FiClock } from 'react-icons/fi';
 
-import ReactCountUp from 'react-countup';
+import _ReactCountUp from 'react-countup';
+const ReactCountUp = _ReactCountUp.default || _ReactCountUp;
 
 const CountUp = ({ end, isInView }) => {
   return isInView ? <ReactCountUp end={end} duration={2} useEasing={true} /> : <span>0</span>;
@@ -28,13 +29,13 @@ const StatsCard = ({ end, label, suffix = '+', icon: Icon, delay }) => {
         <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-brand-blue/5 to-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:text-brand-orange transition-all duration-300">
           <Icon className="w-8 h-8" />
         </div>
-        
+
         {/* Number */}
         <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2 tracking-tight">
           <CountUp end={end} isInView={isInView} />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-yellow-500">{suffix}</span>
         </div>
-        
+
         {/* Label */}
         <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mt-2">{label}</p>
       </div>

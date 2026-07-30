@@ -1,5 +1,5 @@
-import React, { Suspense, lazy, useState } from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import React, { Suspense, lazy, useState, useRef, useEffect } from 'react';
+import { useInView } from 'framer-motion';
 import Hero from '../components/Hero';
 
 const Statistics = lazy(() => import('../components/Statistics'));
@@ -10,24 +10,30 @@ const ContactCTA = lazy(() => import('../components/ContactCTA'));
 
 const Home = () => {
   const [loadHeavy, setLoadHeavy] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "200px" });
+
+  useEffect(() => {
+    if (isInView) {
+      setLoadHeavy(true);
+    }
+  }, [isInView]);
 
   return (
     <>
       <Hero />
       
-      <VisibilitySensor partialVisibility onChange={(isVisible) => { if (isVisible) setLoadHeavy(true); }}>
-        <div className="min-h-[10px]">
-          {loadHeavy && (
-            <Suspense fallback={<div className="h-40 flex items-center justify-center text-gray-400">Loading section...</div>}>
-              <Statistics />
-              <PopularExams />
-              <Features />
-              <News />
-              <ContactCTA />
-            </Suspense>
-          )}
-        </div>
-      </VisibilitySensor>
+      <div ref={ref} className="min-h-[10px]">
+        {loadHeavy && (
+          <Suspense fallback={<div className="h-40 flex items-center justify-center text-gray-400">Loading section...</div>}>
+            <Statistics />
+            <PopularExams />
+            <Features />
+            <News />
+            <ContactCTA />
+          </Suspense>
+        )}
+      </div>
     </>
   );
 };
