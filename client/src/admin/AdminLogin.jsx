@@ -6,6 +6,7 @@ import { BACKEND_URL } from '../config';
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -18,6 +19,7 @@ const AdminLogin = () => {
       toast.warning('Password must be at least 6 characters long');
       return;
     }
+    setIsSubmitting(true);
     try {
       const response = await fetch(`${BACKEND_URL}/api/admin/login`, {
         method: 'POST',
@@ -34,9 +36,11 @@ const AdminLogin = () => {
         }, 1500);
       } else {
         toast.error(data.message || 'Login failed');
+        setIsSubmitting(false);
       }
     } catch (err) {
       toast.error('Error connecting to server');
+      setIsSubmitting(false);
     }
   };
 
@@ -82,9 +86,14 @@ const AdminLogin = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-brand-orange text-white py-3 rounded-xl hover:bg-brand-orange-hover transition font-semibold text-lg shadow-md hover:shadow-lg mt-4"
+            disabled={isSubmitting}
+            className="w-full bg-brand-orange text-white py-3 rounded-xl hover:bg-brand-orange-hover transition font-semibold text-lg shadow-md hover:shadow-lg mt-4 disabled:opacity-70 flex justify-center items-center"
           >
-            Login to Admin
+            {isSubmitting ? (
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+            ) : (
+              'Login to Admin'
+            )}
           </button>
         </form>
       </div>

@@ -6,6 +6,7 @@ import { BACKEND_URL } from '../config';
 
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   
   // Pagination State
@@ -23,6 +24,7 @@ const AdminDashboard = () => {
   }, []);
 
   const fetchInquiries = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch(`${BACKEND_URL}/api/admin/inquiries`, {
         credentials: 'include'
@@ -34,6 +36,8 @@ const AdminDashboard = () => {
     } catch (err) {
       console.error(err);
       toast.error('Failed to fetch inquiries');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -137,7 +141,16 @@ const AdminDashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {currentRecords.length > 0 ? (
+              {isLoading ? (
+                <tr>
+                  <td colSpan="6" className="py-8 text-center">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
+                      <p className="mt-4 text-gray-500 font-medium">Loading Inquiries...</p>
+                    </div>
+                  </td>
+                </tr>
+              ) : currentRecords.length > 0 ? (
                 currentRecords.map((inq) => (
                   <tr key={inq._id} className="border-b border-gray-50 hover:bg-orange-50/30 transition-colors">
                     <td className="py-4 px-4 whitespace-nowrap">{inq.name}</td>
