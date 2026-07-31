@@ -51,7 +51,7 @@ const Footer = () => {
               <li><Link to="/exam/ssc" className="hover:text-brand-orange transition-colors">SSC Preparation</Link></li>
               <li><Link to="/exam/bank" className="hover:text-brand-orange transition-colors">Banking Exams</Link></li>
               <li><Link to="/exam/railway" className="hover:text-brand-orange transition-colors">Railway RRB</Link></li>
-              <li><Link to="/exam/upsc" className="hover:text-brand-orange transition-colors">UPSC Civil Services</Link></li>
+
             </ul>
           </div>
 

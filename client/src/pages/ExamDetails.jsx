@@ -53,11 +53,6 @@ const examData = {
     title: 'Central Teacher Eligibility Test (CTET)',
     description: 'Clear the CTET with confidence. Our curriculum is strictly aligned with the CBSE syllabus for CTET, focusing on conceptual clarity and pedagogical understanding.',
     features: ['NCERT Based Preparation', 'Pedagogy of all Subjects', 'Bilingual Classes', 'Doubt Clearing Sessions']
-  },
-  'upsc': {
-    title: 'UPSC Civil Services',
-    description: 'Prepare for the prestigious UPSC Civil Services Examination with our comprehensive coaching program. We provide in-depth coverage of the vast syllabus, including Prelims and Mains strategy, answer writing practice, and current affairs analysis.',
-    features: ['Comprehensive GS Coverage', 'Daily Current Affairs Analysis', 'Answer Writing Practice', 'Interview & Personality Development']
   }
 };
 

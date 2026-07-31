@@ -25,13 +25,6 @@ const courseData = [
     description: 'Specialized batches focusing on technical and non-technical RRB NTPC and Group D syllabus.'
   },
   {
-    title: 'UPSC Civil Services',
-    image: 'https://images.unsplash.com/photo-1588066077857-41829396dafc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    duration: '12 Months',
-    fees: '₹45,000',
-    description: 'Holistic preparation covering Prelims, Mains, and Interview with renowned subject experts.'
-  },
-  {
     title: 'NDA / Defence',
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     duration: '6 Months',
