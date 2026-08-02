@@ -33,9 +33,9 @@ const Faculty = () => {
   ];
 
   const bankExams = [
-    { 
-      id: 'b1', 
-      title: 'Bank PO/Clerical', 
+    {
+      id: 'b1',
+      title: 'Bank PO/Clerical',
       isGrid: true,
       listItems: [
         'SBI Junior Management Grade Scale - I', 'J&K Bank Apprentice', 'IBPS Clerk',
@@ -65,9 +65,9 @@ const Faculty = () => {
         'Haryana State Co-Operative Bank - Assistant'
       ]
     },
-    { 
-      id: 'b2', 
-      title: 'Bank Specialist Officer (SO)', 
+    {
+      id: 'b2',
+      title: 'Bank Specialist Officer (SO)',
       isGrid: true,
       listItems: [
         'SBI Circle Based Officer (CBO)', 'Bank of Maharashtra Generalist Officer Scale II', 'Bank of Maharashtra Generalist Officer Scale III',
@@ -509,9 +509,7 @@ const Faculty = () => {
 
       {/* Hero Section */}
       <div className="bg-brand-blue text-white py-16 px-4 relative overflow-hidden">
-        {/* Abstract background shapes */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-5 mix-blend-overlay"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-brand-orange opacity-10 mix-blend-overlay"></div>
+
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.h4
@@ -562,21 +560,21 @@ const Faculty = () => {
               {examCategories.map((category, index) => {
                 const isActive = activeCategory === category.name;
                 return (
-                <button
-                  key={index}
-                  onClick={() => setActiveCategory(category.name)}
-                  className={`flex items-center gap-2.5 px-6 py-4 rounded-xl whitespace-nowrap text-[15px] font-bold transition-all duration-300 snap-center shadow-sm ${
-                    isActive
-                      ? 'bg-gradient-to-r from-brand-orange to-yellow-500 text-white border-transparent shadow-[0_8px_20px_rgb(249,115,22,0.25)] transform scale-105'
-                      : 'bg-white text-gray-600 border border-slate-200 hover:border-brand-orange/30 hover:bg-orange-50/50 hover:text-brand-orange hover:-translate-y-1'
-                  }`}
-                >
-                  <span className={`${isActive ? 'text-white' : 'text-brand-blue'} text-lg`}>
-                    {category.icon}
-                  </span>
-                  {category.name}
-                </button>
-              )})}
+                  <button
+                    key={index}
+                    onClick={() => setActiveCategory(category.name)}
+                    className={`flex items-center gap-2.5 px-6 py-4 rounded-xl whitespace-nowrap text-[15px] font-bold transition-all duration-300 snap-center shadow-sm ${isActive
+                        ? 'bg-gradient-to-r from-brand-orange to-yellow-500 text-white border-transparent shadow-[0_8px_20px_rgb(249,115,22,0.25)] transform scale-105'
+                        : 'bg-white text-gray-600 border border-slate-200 hover:border-brand-orange/30 hover:bg-orange-50/50 hover:text-brand-orange hover:-translate-y-1'
+                      }`}
+                  >
+                    <span className={`${isActive ? 'text-white' : 'text-brand-blue'} text-lg`}>
+                      {category.icon}
+                    </span>
+                    {category.name}
+                  </button>
+                )
+              })}
             </div>
           </div>
 

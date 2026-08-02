@@ -77,10 +77,13 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Librs Classes. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors">Terms & Conditions</Link>
+          <div className="text-center md:text-left mb-4 md:mb-0">
+            <p>&copy; {new Date().getFullYear()} Librs Classes. All rights reserved.</p>
+          </div>
+          <div className="text-center md:text-right">
+            <p>
+              Designed & Developed by <a href="https://digitalbull.in/" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:text-white transition-colors">DigitalBull</a>
+            </p>
           </div>
         </div>
       </div>

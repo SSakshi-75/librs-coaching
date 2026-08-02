@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="relative min-h-[115vh] flex items-center pt-24 pb-32 overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#1e40af]">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange/20 rounded-full"></div>
-        <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-cyan-400/20 rounded-full"></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-500/20 rounded-full"></div>
-      </div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

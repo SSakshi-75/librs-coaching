@@ -44,7 +44,7 @@ function App() {
           <Routes>
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />
-            
+
             {/* Protected Admin Panel Routes */}
             <Route element={<AdminLayout />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
